@@ -1,7 +1,7 @@
 <template>
 	<v-app>
 		<v-navigation-drawer app></v-navigation-drawer>
-		<v-toolbar app></v-toolbar>
+		<v-app-bar app></v-app-bar>
 		<v-content>
 			<v-container fluid>
 			  <router-link tag="li" to="/">Home</router-link>
@@ -17,4 +17,4 @@
 export default {};
 </script>
 
-	
+
