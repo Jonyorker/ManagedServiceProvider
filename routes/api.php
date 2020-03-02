@@ -17,6 +17,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', 'UserController@login');
+Route::group([
+    'prefix'        => 'user',
+//    'middleware'    => [
+//        '',
+//    ],
+], function () {
+    Route::get('read/{id}', 'UserController@read');
+    Route::get('read_all', 'UserController@readAll');
+    Route::put('update/{id}', 'UserController@update');
+    Route::post('create', 'UserController@create');
+    Route::delete('delete/{id}', 'UserController@delete');
+
+});
 
 

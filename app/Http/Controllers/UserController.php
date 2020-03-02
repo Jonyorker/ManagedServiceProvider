@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Lcobucci\JWT\Parser;
@@ -11,72 +10,72 @@ use Symfony\Component\HttpFoundation\Response as ResponseHTTP;
 use Validator;
 
 /**
-  @OA\Info(
-      description="",
-      version="1.0.0",
-      title="YDS - Managed Service Provider",
- )
+@OA\Info(
+description="",
+version="1.0.0",
+title="YDS - Managed Service Provider",
+)
  **/
 
 /**
-  @OA\SecurityScheme(
-      securityScheme="bearerAuth",
-          type="http",
-          scheme="bearer",
-          bearerFormat="JWT"
-      ),
+@OA\SecurityScheme(
+securityScheme="bearerAuth",
+type="http",
+scheme="bearer",
+bearerFormat="JWT"
+),
  **/
-class AccountController extends Controller {
+class UserController extends Controller {
 
     /**
-          @OA\Post(
-              path="/v1/login",
-              tags={"Login"},
-              summary="Login",
-              operationId="login",
+    @OA\Post(
+    path="/v1/login",
+    tags={"Login"},
+    summary="Login",
+    operationId="login",
 
-              @OA\Parameter(
-                  name="email",
-                  in="query",
-                  required=true,
-                  @OA\Schema(
-                      type="string"
-                  )
-              ),
-              @OA\Parameter(
-                  name="password",
-                  in="query",
-                  required=true,
-                  @OA\Schema(
-                      type="string"
-                  )
-              ),
-              @OA\Response(
-                  response=200,
-                  description="Success",
-                  @OA\MediaType(
-                      mediaType="application/json",
-                  )
-              ),
-              @OA\Response(
-                  response=401,
-                  description="Unauthorized"
-              ),
-              @OA\Response(
-                  response=400,
-                  description="Invalid request"
-              ),
-              @OA\Response(
-                  response=404,
-                  description="not found"
-              ),
-          )
-         **/
+    @OA\Parameter(
+    name="email",
+    in="query",
+    required=true,
+    @OA\Schema(
+    type="string"
+    )
+    ),
+    @OA\Parameter(
+    name="password",
+    in="query",
+    required=true,
+    @OA\Schema(
+    type="string"
+    )
+    ),
+    @OA\Response(
+    response=200,
+    description="Success",
+    @OA\MediaType(
+    mediaType="application/json",
+    )
+    ),
+    @OA\Response(
+    response=401,
+    description="Unauthorized"
+    ),
+    @OA\Response(
+    response=400,
+    description="Invalid request"
+    ),
+    @OA\Response(
+    response=404,
+    description="not found"
+    ),
+    )
+     **/
 
     /**
-      login API
+    login API
 
-      @return \Illuminate\Http\Response
+    @return \Illuminate\Http\Response
      **/
     public function login(Request $request) {
         try {
@@ -127,5 +126,29 @@ class AccountController extends Controller {
             return $this->APIResponse->handleAndResponseException($e);
         }
     }
+
+    public function create(Request $request) {
+        return response('Read All', 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    public function read(Request $request) {
+        return response('Read All', 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    public function update(Request $request) {
+        return response('Read All', 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    public function delete(Request $request) {
+        return response('Read All', 200)
+            ->header('Content-Type', 'application/json');
+    }
+
+    public function readAll(Request $request) {
+        return response('Read All', 200)
+            ->header('Content-Type', 'application/json');
+    }
 }
-?>
